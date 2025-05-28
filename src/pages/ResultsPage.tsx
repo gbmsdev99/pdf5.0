@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Trash2, Download, BarChart3, Calendar, Clock } from 'lucide-react';
+import { Trash2, Download, BarChart3, Calendar, Clock, FileText } from 'lucide-react';
 import { useTestStore } from '../store/testStore';
+import { generateResultPDF } from '../utils/pdfExport';
 
 export function ResultsPage() {
   const navigate = useNavigate();
@@ -33,10 +34,16 @@ export function ResultsPage() {
     if (selectedResults.length === 0) return;
     
     if (confirm(`Are you sure you want to delete ${selectedResults.length} selected result(s)?`)) {
-      // We would delete the selected results here
-      // For now, we'll just show an alert
+      // Delete functionality would be implemented here
       alert('Delete functionality would be implemented here.');
       setSelectedResults([]);
+    }
+  };
+  
+  const handleExportPDF = (resultId: string) => {
+    const result = sortedResults.find(r => r.id === resultId);
+    if (result) {
+      generateResultPDF(result);
     }
   };
   
@@ -155,6 +162,9 @@ export function ResultsPage() {
                   <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Time Taken
                   </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -212,6 +222,17 @@ export function ResultsPage() {
                           <Clock className="h-4 w-4 mr-1 text-gray-400" />
                           {formatTime(result.timeTaken)}
                         </div>
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleExportPDF(result.id);
+                          }}
+                          className="text-indigo-600 hover:text-indigo-900"
+                        >
+                          <FileText className="h-5 w-5" />
+                        </button>
                       </td>
                     </tr>
                   );
