@@ -7,28 +7,28 @@ export function HomePage() {
   const { savedTests, createNewTest } = useTestStore();
   
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-indigo-900 mb-4">
+    <div className="max-w-4xl mx-auto px-4">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-2xl sm:text-3xl font-bold text-indigo-900 mb-4">
           Offline PDF Test Maker
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Create, customize, and take tests securely from PDF files or manual entry. 
           All data is stored locally on your device.
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <Link 
           to="/upload"
           onClick={createNewTest}
-          className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+          className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
         >
-          <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
-            <FileUp className="h-8 w-8 text-indigo-900" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+            <FileUp className="h-6 w-6 sm:h-8 sm:w-8 text-indigo-900" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">Upload PDF</h2>
-          <p className="text-gray-600 text-center">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Upload PDF</h2>
+          <p className="text-sm sm:text-base text-gray-600 text-center">
             Upload a PDF file and create a new test with questions and answers.
           </p>
         </Link>
@@ -36,33 +36,33 @@ export function HomePage() {
         <Link 
           to="/manual-entry"
           onClick={createNewTest}
-          className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+          className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
         >
-          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-            <Edit className="h-8 w-8 text-emerald-700" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+            <Edit className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-700" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">Manual Entry</h2>
-          <p className="text-gray-600 text-center">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Manual Entry</h2>
+          <p className="text-sm sm:text-base text-gray-600 text-center">
             Create a test by entering questions manually with support for images.
           </p>
         </Link>
         
         <Link 
           to="/results"
-          className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+          className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
         >
-          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-            <BarChart className="h-8 w-8 text-amber-700" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+            <BarChart className="h-6 w-6 sm:h-8 sm:w-8 text-amber-700" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">View Results</h2>
-          <p className="text-gray-600 text-center">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">View Results</h2>
+          <p className="text-sm sm:text-base text-gray-600 text-center">
             See your past test results and performance analytics.
           </p>
         </Link>
       </div>
       
       {savedTests.length > 0 && (
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-12">
           <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
             <List className="h-5 w-5 mr-2" />
             Your Tests
@@ -71,8 +71,8 @@ export function HomePage() {
             <ul className="divide-y divide-gray-200">
               {savedTests.map((test) => (
                 <li key={test.id} className="p-4 hover:bg-gray-50">
-                  <div className="flex items-center justify-between">
-                    <div>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div className="mb-2 sm:mb-0">
                       <h3 className="text-lg font-medium text-gray-800">
                         {test.settings.title}
                       </h3>
@@ -83,13 +83,13 @@ export function HomePage() {
                     <div className="flex space-x-2">
                       <Link
                         to={`/preview/${test.id}`}
-                        className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded hover:bg-indigo-200 text-sm"
+                        className="flex-1 sm:flex-none px-3 py-1 bg-indigo-100 text-indigo-800 rounded hover:bg-indigo-200 text-sm text-center"
                       >
                         Edit
                       </Link>
                       <Link
                         to={`/instructions/${test.id}`}
-                        className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded hover:bg-emerald-200 text-sm"
+                        className="flex-1 sm:flex-none px-3 py-1 bg-emerald-100 text-emerald-800 rounded hover:bg-emerald-200 text-sm text-center"
                       >
                         Take Test
                       </Link>
