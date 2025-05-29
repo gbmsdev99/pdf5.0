@@ -584,7 +584,7 @@ Answer: B`;
           <div>
             <h3 className="font-medium text-amber-800 mb-2">Multiple Choice</h3>
             <pre className="bg-white p-3 rounded-lg border border-amber-200 text-sm overflow-x-auto">
-{`Q1. What is the capital of France?
+              {`Q1. What is the capital of France?
 A. Berlin
 B. Paris
 C. London
@@ -596,7 +596,7 @@ Answer: B`}
           <div>
             <h3 className="font-medium text-amber-800 mb-2">True/False</h3>
             <pre className="bg-white p-3 rounded-lg border border-amber-200 text-sm overflow-x-auto">
-{`[TRUE_FALSE] The Earth is flat.
+              {`[TRUE_FALSE] The Earth is flat.
 Answer: false`}
             </pre>
           </div>
@@ -604,7 +604,7 @@ Answer: false`}
           <div>
             <h3 className="font-medium text-amber-800 mb-2">Fill in the Blank</h3>
             <pre className="bg-white p-3 rounded-lg border border-amber-200 text-sm overflow-x-auto">
-{`[FILL_IN_BLANK] The process of photosynthesis 
+              {`[FILL_IN_BLANK] The process of photosynthesis 
 occurs in the [___] of plant cells.
 Answer: chloroplasts
 Alternatives: chloroplast, Chloroplasts`}
@@ -614,7 +614,7 @@ Alternatives: chloroplast, Chloroplasts`}
           <div>
             <h3 className="font-medium text-amber-800 mb-2">Matching</h3>
             <pre className="bg-white p-3 rounded-lg border border-amber-200 text-sm overflow-x-auto">
-{`[MATCHING] Match the following:
+              {`[MATCHING] Match the following:
 1. Oxygen | Essential for breathing
 2. Hydrogen | Lightest element
 3. Carbon | Basic building block
@@ -625,7 +625,7 @@ Alternatives: chloroplast, Chloroplasts`}
           <div className="md:col-span-2">
             <h3 className="font-medium text-amber-800 mb-2">Short Answer</h3>
             <pre className="bg-white p-3 rounded-lg border border-amber-200 text-sm overflow-x-auto">
-{`[SHORT_ANSWER] Explain photosynthesis.
+              {`[SHORT_ANSWER] Explain photosynthesis.
 Keywords: sunlight, chlorophyll, CO2
 Model Answer: Photosynthesis is the process
 where plants convert sunlight to energy.`}
